@@ -1,0 +1,1249 @@
+/* Estilos gerais para o corpo e containers */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #1a1a1a; /* Fundo cinza bem escuro / quase preto */
+  color: #c77dff; /* Lilás suave para o texto principal */
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 0px; /* Reduzindo padding inicial */
+  box-sizing: border-box;
+}
+
+/* O .App agora será o container principal do layout, não o wrapper inicial */
+.App {
+  width: 100%;
+  min-height: 100vh;
+  display: block;
+  max-width: none;
+  padding: 0;
+  background-color: transparent;
+  box-shadow: none;
+  text-align: center; /* Mantido para centralização de fallback */
+}
+
+/* Estilos para containers de autenticação (Login/Register) */
+.auth-container {
+  max-width: 450px; /* Um pouco maior para caber o novo estilo */
+  margin: 30px auto; /* Adicionado margem para centralizar melhor */
+  padding: 40px; /* Aumentado padding */
+  border-radius: 12px;
+  background-color: #2c2c2c; /* Cinza mais claro que o fundo do body */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Sombra mais intensa */
+  color: #e0b0ff; /* Lilás mais claro para o texto */
+  border: 1px solid #444; /* Borda sutil */
+}
+
+.auth-container h2 {
+  color: #e0b0ff; /* Lilás para títulos de autenticação */
+  margin-bottom: 30px;
+  font-size: 2.2em;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos de formulário (geral) */
+.auth-form .form-group {
+  margin-bottom: 20px; /* Aumentado espaçamento */
+  text-align: left;
+}
+
+.auth-form label {
+  display: block;
+  margin-bottom: 10px; /* Aumentado espaçamento */
+  font-weight: bold;
+  color: #e0b0ff; /* Lilás mais claro para labels */
+}
+
+.auth-form input[type="text"],
+.auth-form input[type="email"],
+.auth-form input[type="password"] {
+  width: calc(100% - 24px); /* Ajustado para padding */
+  padding: 14px; /* Aumentado padding */
+  border: 1px solid #555; /* Borda mais escura */
+  border-radius: 8px;
+  font-size: 1.1em;
+  background-color: #3e3e3e; /* Fundo do input mais escuro */
+  color: #ffffff; /* Texto branco dentro do input */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-form input[type="text"]:focus,
+.auth-form input[type="email"]:focus,
+.auth-form input[type="password"]:focus {
+  border-color: #c77dff; /* Lilás no foco */
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(199, 125, 255, 0.3); /* Sombra lilás no foco */
+}
+
+/* Estilos de botões */
+.btn-primary, .btn-secondary {
+  background-color: #c77dff; /* Lilás para primário */
+  color: #1a1a1a; /* Texto escuro para contraste */
+  padding: 14px 30px; /* Aumentado padding */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2em;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  margin-top: 25px; /* Aumentado margem */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: #b05cfa; /* Lilás mais escuro no hover */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-secondary {
+  background-color: #6c757d; /* Cinza para secundário */
+  color: white;
+  margin-left: 15px; /* Aumentado margem */
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  transform: translateY(-3px);
+}
+
+/* Mensagens de feedback */
+.message {
+  margin-top: 25px;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.message.success {
+  background-color: #d4edda; /* Verde claro */
+  color: #155724; /* Verde escuro */
+  border: 1px solid #c3e6cb;
+}
+
+.message.error {
+  background-color: #f8d7da; /* Vermelho claro */
+  color: #721c24; /* Vermelho escuro */
+  border: 1px solid #f5c6cb;
+}
+
+/* Links de navegação */
+p a {
+  color: #e0b0ff; /* Lilás para links */
+  text-decoration: none;
+  font-weight: bold;
+  transition: text-decoration 0.3s ease;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
+/* Estilos para o Layout principal */
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #1a1a1a; /* Fundo principal */
+}
+
+.main-header {
+  background-color: #282c34; /* Cinza escuro para o cabeçalho */
+  color: #c77dff; /* Lilás para o texto do cabeçalho */
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4); /* Sombra mais escura */
+}
+
+.main-header .logo-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.main-header .profile-pic-header {
+  width: 45px; /* Ligeiramente maior */
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e0b0ff; /* Lilás na borda */
+}
+
+.main-header h2 {
+  margin: 0;
+  font-size: 1.9em;
+  color: #c77dff; /* Lilás para o título StudySync */
+}
+
+.main-header .welcome-message {
+  font-size: 1.1em;
+  margin-left: 20px;
+  color: #b0b0b0; /* Cinza mais claro para a mensagem de boas-vindas */
+}
+
+.main-nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.main-nav .nav-link {
+  color: #e0b0ff; /* Lilás para links de navegação */
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.main-nav .nav-link:hover,
+.main-nav .nav-link.active {
+  background-color: #e0b0ff; /* Lilás para o hover/ativo */
+  color: #1a1a1a; /* Texto escuro no hover/ativo */
+}
+
+.main-nav .btn-logout {
+  background-color: #dc3545;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.main-nav .btn-logout:hover {
+  background-color: #c82333;
+}
+
+.app-content {
+  flex-grow: 1;
+  padding: 30px;
+  background-color: #1a1a1a; /* Fundo do conteúdo igual ao body */
+  color: #c77dff; /* Lilás para o texto do conteúdo */
+}
+
+/* Ajustes para os containers de página */
+.dashboard-content-page,
+.discipline-manager-container,
+.study-statistics-container,
+.task-list-container,
+.profile-container,
+.ranking-container {
+  max-width: 800px; /* Um pouco mais amplo para o conteúdo */
+  margin: 30px auto; /* Centraliza */
+  background-color: #2c2c2c; /* Fundo dos containers de conteúdo (cinza médio) */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5); /* Sombra mais intensa */
+  border: 1px solid #444; /* Borda sutil */
+  color: #e0b0ff; /* Lilás mais claro para o texto dentro dos containers */
+}
+
+.dashboard-content-page h2,
+.discipline-manager-container h3,
+.study-statistics-container h3,
+.task-list-container h3,
+.profile-container h3,
+.ranking-container h3 {
+  color: #e0b0ff; /* Lilás para todos os títulos internos das páginas */
+  margin-bottom: 25px;
+  font-size: 2em;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-content-page p {
+  font-size: 1.1em;
+  color: #b0b0b0; /* Cinza claro para parágrafos */
+  margin-bottom: 30px;
+}
+
+/* Correção do app wrapper inicial */
+.App {
+  width: 100%;
+  min-height: 100vh;
+  display: block;
+  max-width: none;
+  padding: 0;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+/* Estilo para dropdown (select) no timer */
+.study-timer-container select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #c77dff; /* Lilás na borda do select */
+  border-radius: 8px;
+  font-size: 1.1em;
+  background-color: #3e3e3e; /* Fundo do select */
+  color: #ffffff; /* Texto branco */
+  cursor: pointer;
+}
+
+.study-timer-container select:focus {
+  outline: none;
+  border-color: #e0b0ff;
+  box-shadow: 0 0 0 3px rgba(199, 125, 255, 0.3);
+}
+
+/* Estilos para o Cronômetro de Estudo */
+.study-timer-container {
+  background-color: #2c2c2c; /* Fundo cinza escuro para o cronômetro */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  margin-top: 30px;
+  border: 1px solid #444;
+  color: #e0b0ff; /* Lilás para o texto do cronômetro */
+}
+
+.study-timer-container h3 {
+  color: #e0b0ff; /* Lilás para o título do cronômetro */
+  margin-bottom: 20px;
+  font-size: 1.8em;
+}
+
+.time-display {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 4.5em; /* Ligeiramente maior */
+  font-weight: bold;
+  color: #ff69b4; /* Rosa para o display de tempo */
+  margin-bottom: 30px;
+  background-color: #1a1a1a; /* Fundo preto para o display */
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.4);
+  border: 1px solid #444;
+}
+
+.discipline-input label {
+  color: #e0b0ff; /* Lilás para label da disciplina */
+}
+
+.discipline-input input[type="text"] {
+  border: 1px solid #c77dff; /* Lilás na borda */
+  background-color: #3e3e3e; /* Fundo escuro */
+  color: #ffffff; /* Texto branco */
+}
+
+.discipline-input input[type="text"]:focus {
+  border-color: #e0b0ff;
+  box-shadow: 0 0 0 3px rgba(199, 125, 255, 0.3);
+}
+
+.discipline-input input[type="text"]:disabled {
+  background-color: #222;
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+.timer-controls button {
+  padding: 14px 30px; /* Mais padding */
+  border-radius: 8px; /* Bordas mais suaves */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.timer-controls .btn-primary {
+  background-color: #4CAF50; /* Verde mais escuro para Iniciar */
+  color: white;
+}
+.timer-controls .btn-primary:hover {
+  background-color: #45a049;
+}
+
+.timer-controls .btn-secondary {
+  background-color: #f44336; /* Vermelho para Pausar/Continuar */
+  color: white;
+}
+.timer-controls .btn-secondary:hover {
+  background-color: #d32f2f;
+}
+
+.timer-controls .btn-danger {
+  background-color: #FF5733; /* Laranja/Vermelho para Parar */
+  color: white;
+}
+.timer-controls .btn-danger:hover {
+  background-color: #E64A19;
+}
+
+
+/* Estilos para o Navegador do Dashboard */
+.dashboard-nav .nav-link {
+  background-color: transparent; /* Remove background */
+  color: #e0b0ff; /* Lilás para links */
+}
+
+.dashboard-nav .nav-link:hover {
+  background-color: #e0b0ff; /* Lilás no hover */
+  color: #1a1a1a; /* Texto escuro */
+}
+
+/* Estilos para o Gerenciador de Disciplinas */
+.discipline-manager-container h3 {
+  color: #e0b0ff; /* Lilás para título */
+}
+
+.discipline-manager-container .message.success {
+  background-color: #388e3c; /* Verde escuro */
+  color: white;
+  border: 1px solid #2e7d32;
+}
+
+.discipline-manager-container .message.error {
+  background-color: #d32f2f; /* Vermelho escuro */
+  color: white;
+  border: 1px solid #c62828;
+}
+
+/* Formulário de Disciplinas */
+.discipline-form {
+  background-color: #3e3e3e; /* Fundo escuro */
+  border: 1px solid #555;
+}
+
+.discipline-form label {
+  color: #e0b0ff; /* Lilás para labels */
+}
+
+.discipline-form input[type="text"],
+.discipline-form input[type="color"] {
+  border: 1px solid #c77dff; /* Lilás na borda */
+  background-color: #444; /* Fundo escuro */
+  color: #ffffff; /* Texto branco */
+}
+
+.discipline-form input[type="text"]:focus,
+.discipline-form input[type="color"]:focus {
+  border-color: #e0b0ff;
+  box-shadow: 0 0 0 3px rgba(199, 125, 255, 0.3);
+}
+
+.discipline-form button.btn-primary {
+  background-color: #c77dff;
+  color: #1a1a1a;
+}
+.discipline-form button.btn-primary:hover {
+  background-color: #b05cfa;
+}
+
+/* Lista de Disciplinas */
+.disciplines-list h4 {
+  color: #e0b0ff; /* Lilás para título */
+  border-bottom: 1px solid #444;
+}
+
+.disciplines-list ul {
+  border: 1px solid #444;
+}
+
+.disciplines-list li {
+  border-bottom: 1px solid #444;
+  background-color: #333; /* Fundo escuro para itens da lista */
+  color: #e0b0ff; /* Lilás para texto do item */
+}
+
+.disciplines-list li:hover {
+  background-color: #4a4a4a; /* Cinza mais claro no hover */
+}
+
+.discipline-color-dot {
+  border: 1px solid #888;
+}
+
+.btn-icon {
+  color: #e0b0ff; /* Lilás para ícones */
+}
+.btn-icon.btn-delete:hover {
+  color: #dc3545; /* Vermelho para deletar */
+}
+
+/* Estilo para dropdown (select) no timer */
+.study-timer-container select {
+  border: 1px solid #c77dff; /* Lilás na borda */
+  background-color: #444; /* Fundo escuro */
+  color: #ffffff; /* Texto branco */
+}
+.study-timer-container select:focus {
+  border-color: #e0b0ff;
+}
+
+
+/* Estilos para o StudyStatistics Container */
+.study-statistics-container h3 {
+  color: #e0b0ff; /* Lilás para título */
+}
+
+.stats-section {
+  border: 1px solid #444;
+  background-color: #333; /* Fundo escuro para seções */
+}
+
+.stats-section h4 {
+  color: #e0b0ff; /* Lilás para subtítulo */
+  border-bottom: 1px solid #444;
+}
+
+.stats-section ul {
+  color: #b0b0b0; /* Cinza claro para texto da lista */
+}
+
+.stats-section li {
+  border-bottom: 1px dashed #555;
+  color: #e0b0ff; /* Lilás para texto da lista */
+}
+
+.stats-section p {
+  color: #ff69b4; /* Rosa para valores de tempo */
+}
+
+/* Estilos para o Task List Container */
+.task-list-container h3 {
+  color: #e0b0ff; /* Lilás para título */
+}
+
+/* Formulário de Tarefas */
+.task-form {
+  background-color: #3e3e3e; /* Fundo escuro */
+  border: 1px solid #555;
+}
+
+.task-form label {
+  color: #e0b0ff; /* Lilás para labels */
+}
+
+.task-form input[type="text"],
+.task-form textarea,
+.task-form select,
+.task-form input[type="date"] {
+  border: 1px solid #c77dff; /* Lilás na borda */
+  background-color: #444; /* Fundo escuro */
+  color: #ffffff; /* Texto branco */
+}
+
+.task-form input[type="text"]:focus,
+.task-form textarea:focus,
+.task-form select:focus,
+.task-form input[type="date"]:focus {
+  border-color: #e0b0ff;
+  box-shadow: 0 0 0 3px rgba(199, 125, 255, 0.3);
+}
+
+.task-form button {
+  background-color: #c77dff;
+  color: #1a1a1a;
+}
+
+.task-form button:hover {
+  background-color: #b05cfa;
+}
+
+/* Lista de Tarefas */
+.tasks-list h4 {
+  color: #e0b0ff; /* Lilás para título */
+  border-bottom: 1px solid #444;
+}
+
+.tasks-list ul {
+  border: 1px solid #444;
+}
+
+.tasks-list li {
+  border-bottom: 1px solid #444;
+  background-color: #333; /* Fundo escuro para itens da lista */
+  color: #e0b0ff; /* Lilás para texto do item */
+}
+
+.tasks-list li:hover {
+  background-color: #4a4a4a; /* Cinza mais claro no hover */
+}
+
+.task-item input[type="checkbox"] {
+  border-color: #c77dff; /* Lilás para checkbox */
+  background-color: #444;
+}
+
+.task-title {
+  color: #e0b0ff; /* Lilás para título da tarefa */
+}
+
+.task-description {
+  color: #b0b0b0; /* Cinza claro para descrição */
+}
+
+.task-meta {
+  color: #999; /* Cinza mais escuro para meta info */
+}
+
+/* Cores para Prioridade */
+.priority-1 { color: #ff69b4; font-weight: bold; } /* Rosa para Alta */
+.priority-2 { color: #e0b0ff; font-weight: bold; } /* Lilás para Média */
+.priority-3 { color: #8aff8a; font-weight: bold; } /* Verde claro para Baixa (contrasta com o tema escuro) */
+
+/* Estilo para tarefas concluídas */
+.completed-task {
+  background-color: #2e4a2e; /* Fundo verde musgo escuro */
+  opacity: 0.8;
+}
+
+.completed-task .task-title, .completed-task .task-description {
+  text-decoration: line-through;
+  color: #777;
+}
+
+.task-actions {
+  color: #e0b0ff; /* Lilás para ícones de ação */
+}
+
+/* Estilos para o componente Profile */
+.profile-container h3 {
+  color: #e0b0ff;
+}
+
+.profile-picture-display {
+  border: 2px dashed #e0b0ff; /* Lilás na borda dashed */
+  background-color: #3e3e3e;
+}
+
+.profile-picture-display .no-profile-pic {
+  color: #b0b0b0;
+}
+
+.profile-upload-form button.btn-primary {
+  background-color: #c77dff;
+  color: #1a1a1a;
+}
+.profile-upload-form button.btn-primary:hover {
+  background-color: #b05cfa;
+}
+
+.file-upload-label {
+  background-color: #e0b0ff; /* Lilás para o label de upload */
+  color: #1a1a1a;
+}
+.file-upload-label:hover {
+  background-color: #c77dff;
+}
+
+.selected-file-name {
+  color: #b0b0b0;
+}
+
+/* Estilos para a miniatura da foto no Dashboard Header */
+.dashboard-header .profile-pic-thumbnail {
+  border: 2px solid #e0b0ff; /* Lilás na borda */
+}
+
+/* Estilos para o Ranking Container */
+.ranking-container {
+  background-color: #2c2c2c; /* Fundo do container, cinza médio */
+  padding: 30px;
+  border-radius: 12px; /* Bordas mais suaves */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5); /* Sombra mais intensa */
+  text-align: center;
+  max-width: 600px;
+  margin: 30px auto;
+  color: #e0b0ff; /* Lilás mais claro para texto geral dentro */
+  border: 1px solid #444; /* Borda sutil */
+}
+
+.ranking-container h3 {
+  color: #e0b0ff; /* Lilás para o título */
+  margin-bottom: 30px;
+  font-size: 1.8em;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Sombra de texto sutil */
+}
+
+.ranking-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #444; /* Borda para a lista, combinando com o tema */
+  border-radius: 8px; /* Bordas suaves */
+  overflow: hidden; /* Garante que as bordas arredondadas funcionem bem */
+}
+
+.ranking-item {
+  display: flex;
+  align-items: center;
+  /* Ajuste no justify-content para um espaçamento mais uniforme */
+  justify-content: flex-start; /* Alinha os itens ao início, usaremos gaps */
+  padding: 15px 10px;
+  border-bottom: 1px solid #444; /* Linha divisória */
+  background-color: #333333; /* Fundo dos itens da lista, um cinza mais escuro */
+  color: #e0b0ff; /* Lilás para o texto dos itens */
+  transition: background-color 0.2s ease;
+  gap: 15px; /* Espaço entre os elementos do item */
+}
+
+.ranking-item:last-child {
+  border-bottom: none; /* Remove a borda do último item */
+}
+
+.ranking-item:hover {
+  background-color: #4a4a4a; /* Cinza ligeiramente mais claro no hover */
+}
+
+.ranking-position {
+  font-weight: bold;
+  font-size: 1.6em; /* Aumentado para mais destaque */
+  color: #ff69b4; /* Rosa para a posição */
+  flex-shrink: 0;
+  width: 40px; /* Largura fixa para posição */
+  text-align: right; /* Alinha o número à direita */
+}
+
+.ranking-profile-pic {
+  width: 40px; /* Tamanho da miniatura */
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #555; /* Borda da imagem, combinando com o tema */
+  flex-shrink: 0;
+}
+
+.ranking-username {
+  flex-grow: 1; /* Ocupa o espaço restante */
+  text-align: left;
+  font-size: 1.3em; /* Aumentado para mais destaque */
+  color: #e0b0ff; /* Lilás para o nome de usuário */
+  white-space: nowrap; /* Evita que o nome quebre a linha */
+  overflow: hidden; /* Esconde o excesso se não couber */
+  text-overflow: ellipsis; /* Adiciona "..." se o nome for muito longo */
+}
+
+.ranking-time {
+  font-weight: bold;
+  color: #ff69b4; /* Rosa para o tempo */
+  font-size: 1.2em; /* Aumentado para mais destaque */
+  flex-shrink: 0;
+  width: 120px; /* Largura fixa para tempo (permite HH:MM:SS) */
+  text-align: right;
+}
+
+/* Estilos específicos para os top 3 */
+.ranking-item:nth-child(1) .ranking-position {
+  color: #ffd700; /* Dourado */
+  font-size: 1.8em; /* Ainda mais destaque */
+}
+.ranking-item:nth-child(2) .ranking-position {
+  color: #c0c0c0; /* Prata */
+  font-size: 1.7em;
+}
+.ranking-item:nth-child(3) .ranking-position {
+  color: #b87333; /* Bronze */
+  font-size: 1.6em;
+}
+
+/* Estilos para o Group Manager Container */
+.group-manager-container {
+  background-color: #2c2c2c;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  max-width: 800px; /* Um pouco mais amplo para grupos */
+  margin: 30px auto;
+  color: #e0b0ff;
+  border: 1px solid #444;
+}
+
+.group-manager-container h3 {
+  color: #e0b0ff;
+  margin-bottom: 30px;
+  font-size: 1.8em;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.group-manager-container h4 {
+    color: #c77dff; /* Lilás para subtítulos */
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+}
+
+.group-forms-section {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.group-form {
+    flex: 1; /* Ocupa espaço igual */
+    background-color: #3e3e3e;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #555;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    text-align: left;
+}
+
+.group-form h4 {
+    color: #ff69b4; /* Rosa para títulos de formulário */
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    text-align: center;
+}
+
+.group-form .form-group label {
+    color: #e0b0ff;
+}
+
+.group-form input[type="text"],
+.group-form textarea {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #c77dff;
+    border-radius: 4px;
+    background-color: #444;
+    color: #ffffff;
+    font-size: 1em;
+}
+
+.group-form textarea {
+    resize: vertical;
+}
+
+.group-form button {
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* Lista de Grupos */
+.my-groups-list ul {
+    list-style: none;
+    padding: 0;
+    max-height: 350px;
+    overflow-y: auto;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background-color: #333333;
+}
+
+.group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #444;
+    color: #e0b0ff;
+    transition: background-color 0.2s ease;
+}
+
+.group-item:last-child {
+    border-bottom: none;
+}
+
+.group-item:hover {
+    background-color: #4a4a4a;
+}
+
+.group-item .group-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer; /* Indica que é clicável */
+    flex-grow: 1;
+    text-align: left;
+}
+
+.group-item .group-name:hover {
+    text-decoration: underline;
+    color: #ff69b4; /* Rosa no hover */
+}
+
+.group-item .group-actions button {
+    margin-left: 10px;
+}
+
+/* Modal de Detalhes do Grupo */
+.group-details-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Garante que fique por cima de tudo */
+}
+
+.modal-content {
+    background-color: #2c2c2c;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    max-width: 600px;
+    width: 90%;
+    color: #e0b0ff;
+    border: 1px solid #444;
+    position: relative;
+}
+
+.modal-content h4 {
+    color: #e0b0ff;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #555;
+    padding-bottom: 10px;
+}
+
+.modal-content p {
+    margin-bottom: 10px;
+    color: #b0b0b0;
+}
+
+.modal-content h5 {
+    color: #ff69b4;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+
+.group-members-list {
+    list-style: none;
+    padding: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #555;
+    border-radius: 8px;
+    background-color: #3e3e3e;
+}
+
+.member-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-bottom: 1px solid #555;
+    color: #e0b0ff;
+}
+
+.member-item:last-child {
+    border-bottom: none;
+}
+
+.member-profile-pic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 1px solid #777;
+}
+
+.member-username {
+    font-weight: bold;
+    margin-right: auto;
+}
+
+.member-study-time {
+    font-size: 0.9em;
+    color: #b0b0b0;
+}
+
+.modal-content button.btn-primary {
+    margin-top: 30px;
+    width: auto; /* Ajuste para não ocupar 100% da largura */
+    padding: 10px 25px;
+}
+
+/* Estilos para o status de membro no modal de grupo */
+.member-item {
+    position: relative; /* Para posicionar o status dot */
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-bottom: 1px solid #555;
+    color: #e0b0ff;
+}
+
+.member-username {
+    font-weight: bold;
+    margin-right: 10px; /* Adiciona espaço entre nome e status */
+}
+
+.member-status {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: auto; /* Empurra o tempo para a direita */
+    border: 1px solid #777; /* Borda para visibilidade */
+}
+
+.member-status.status-offline {
+    background-color: #888; /* Cinza */
+}
+.member-status.status-online {
+    background-color: #28a745; /* Verde */
+}
+.member-status.status-studying {
+    background-color: #ffc107; /* Amarelo */
+    box-shadow: 0 0 5px 2px rgba(255, 193, 7, 0.5); /* Efeito de brilho */
+}
+
+/* Estilos para a seção de ranking dentro do modal de grupo */
+.group-details-modal .group-ranking-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #555;
+}
+
+.group-details-modal .group-ranking-section h5 {
+    color: #ff69b4; /* Rosa para o título */
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    text-align: center;
+}
+
+.group-details-modal .ranking-period-selector {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.group-details-modal .ranking-period-selector .btn-filter {
+    background-color: #555; /* Cinza para botões de filtro */
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.group-details-modal .ranking-period-selector .btn-filter:hover {
+    background-color: #666;
+}
+
+.group-details-modal .ranking-period-selector .btn-filter.active {
+    background-color: #c77dff; /* Lilás quando ativo */
+    font-weight: bold;
+}
+
+.group-details-modal .group-ranking-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #3e3e3e; /* Fundo da lista de ranking */
+    border-radius: 8px;
+    overflow: hidden;
+    max-height: 250px; /* Altura máxima para rolagem */
+    overflow-y: auto;
+}
+
+.group-details-modal .group-ranking-list .ranking-item {
+    border-bottom: 1px solid #555; /* Borda entre itens */
+    background-color: transparent; /* Fundo transparente para herdar do ul */
+}
+
+.group-details-modal .group-ranking-list .ranking-item:last-child {
+    border-bottom: none;
+}
+
+.group-details-modal .group-ranking-list .ranking-item:hover {
+    background-color: #4a4a4a;
+}
+
+/* Estilos para o link "Esqueci a senha?" */
+.forgot-password-link {
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+
+.forgot-password-link a {
+    color: #e0b0ff; /* Lilás */
+}
+
+.forgot-password-link a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para o Study Topic Planner Container */
+.study-topic-planner-container {
+    background-color: #2c2c2c;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    max-width: 800px;
+    margin: 30px auto;
+    color: #e0b0ff;
+    border: 1px solid #444;
+}
+
+.study-topic-planner-container h3 {
+    color: #e0b0ff;
+    margin-bottom: 30px;
+    font-size: 1.8em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Formulário de Tópicos */
+.topic-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #3e3e3e;
+}
+
+.topic-form .form-group {
+    text-align: left;
+}
+
+.topic-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #e0b0ff;
+}
+
+.topic-form input[type="text"],
+.topic-form textarea,
+.topic-form select {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #c77dff;
+    border-radius: 4px;
+    background-color: #444;
+    color: #ffffff;
+    font-size: 1em;
+}
+
+.topic-form textarea {
+    resize: vertical;
+}
+
+.topic-form select[multiple] {
+    height: auto; /* Altura flexível para seleção múltipla */
+    min-height: 80px; /* Altura mínima */
+}
+
+.topic-form small {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.85em;
+    color: #b0b0b0;
+}
+
+/* Seção de Ordem de Estudo */
+.study-order-section {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #555;
+    border-radius: 8px;
+    background-color: #3e3e3e;
+    text-align: left;
+}
+
+.study-order-section h4 {
+    color: #ff69b4; /* Rosa para o título */
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    border-bottom: 1px solid #555;
+    padding-bottom: 10px;
+}
+
+.topological-order-list {
+    list-style: decimal; /* Números para a lista ordenada */
+    padding-left: 25px; /* Recuo para números */
+    color: #e0b0ff;
+}
+
+.topological-order-list li {
+    margin-bottom: 8px;
+    font-size: 1.1em;
+}
+
+.topological-order-list li strong {
+    color: #8aff8a; /* Verde claro para o nome do tópico */
+}
+
+.topological-order-list .prereq-info {
+    font-size: 0.9em;
+    color: #b0b0b0;
+    margin-left: 10px;
+}
+
+.error-message {
+    color: #dc3545; /* Vermelho para mensagens de erro/ciclo */
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* Lista de Todos os Tópicos */
+.all-topics-list {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.all-topics-list h4 {
+    color: #e0b0ff;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+}
+
+.all-topics-list ul {
+    list-style: none;
+    padding: 0;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background-color: #333333;
+}
+
+.topic-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    border-bottom: 1px solid #444;
+    color: #e0b0ff;
+    transition: background-color 0.2s ease;
+}
+
+.topic-item:last-child {
+    border-bottom: none;
+}
+
+.topic-item:hover {
+    background-color: #4a4a4a;
+}
+
+.topic-item .topic-name {
+    font-size: 1.1em;
+    font-weight: bold;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.topic-item .topic-actions {
+    margin-left: 10px;
+    display: flex;
+    gap: 8px;
+}
